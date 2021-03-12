@@ -19,6 +19,7 @@ var generateBtn = document.querySelector("#generate");
 generateBtn.addEventListener("click", writePassword); {
 }
 var numericCharacters = ["0","1", "2", "3", "4", "5", "6", "7", "8", "9"]
+var specialCharacters = [",", "?", ".", ">", "<", "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "`", "{", "}", "[", "]", "|", "œ", "∑", "´", "®", "†", "¥", "¨", "ˆ", "ø", "π", "“", "‘", "«", "å", "ß", "∂", "ƒ", "©", "˙", "˙", "∆", "˚", "˚", "¬", "…", "æ", "÷", "≥", "≤", "µ", "˜", "∫", "√", "ç", "≈" ]
 var upperCaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 var lowerCaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 
@@ -36,30 +37,40 @@ function choosePasswordOptions() {
         alert("Password must be less then 129 characters")
         return;
     }
-    // invoke new prompt between conditions
-var newPrompt = numericConfirm("Would you like to include Numeric Characters!");
-    if (numericConfirm) {
-        numericCharacters();
-    } else {
-        alert("Numeric Characters NOT Selected")
-        return;
-    }
-    
-var newPrompt = confirm("Would you like to include Special Character!");
-    if (specialCharacters === specialCharacters) { 
-        alert("Special Characters Selected")
-        return;
-    }
-    if (specialCharacters !== specialCharacters) { 
-        alert("Special Characters NOT Selected")
-        return;
-    };
-
+    // invoke new prompt between condition
     //Confirm Character Type Selection
-    var wantsNumericCharacters = confirm("Click Ok if you would like to include Numeric Characters.");
-    var wantsSpecialCharcters = confirm("Click Ok if you would like to include Special Characters");
-    var wantsUpperCaseCharacterers = confrim("Click Ok if you would like to include Upper Case Characters");
-    var wantsLowerCaseCharacters = confirm("Click Ok if you would like Lower Case Characters");
+var wantsNumericCharacters = confirm("Click Ok if you would like to include Numeric Characters.");
+    if (wantsNumericCharacters) {
+        alert("Numeric Characters Selected");
+    } else {
+        alert("Numeric Characters NOT Selected");
+        return;
+    }
+
+var wantsSpecialCharcters = confirm("Click Ok if you would like to include Special Characters");
+    if (wantsSpecialCharacters) {
+        alert("Special Characters Selected");
+    } else {
+        alert("Special Characters NOT Selected");
+        return;
+    }
+
+var wantsUpperCaseCharacterers = confrim("Click Ok if you would like to include Upper Case Characters");
+        if (wantsUpperCaseCharacterers) {
+            alert("Uppercase Characters Selected");
+        } else {
+            alert("Uppercase Characters NOT Selected");
+            return;
+        }
+
+var wantsLowerCaseCharacters = confirm("Click Ok if you would like Lower Case Characters");
+        if (wantsLowerCaseCharacters) {
+            alert("Lowercase Characters Selected");
+        } else {
+            alert("Lowercase Characters NOT Selected");
+            return;
+        }
+
         if (wantsNumericCharacters === false && wantsSpecialCharacters === false && wantsUpperCaseCharacters === false && wantsLowerCaseCharacters === false) {
         alert("Error, Please select a minimum of one Character Type.")
         }
