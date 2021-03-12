@@ -21,6 +21,7 @@ generateBtn.addEventListener("click", writePassword); {
 var numericCharacters = ["0","1", "2", "3", "4", "5", "6", "7", "8", "9"]
 var upperCaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 var lowerCaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+
 function choosePasswordOptions() {
  var passwordLength = parseInt(prompt("How many charcters long do you want?"));
     if (isNaN(passwordLength)) {
@@ -34,9 +35,8 @@ function choosePasswordOptions() {
      if (passwordLength > 128)  {
         alert("Password must be less then 129 characters")
         return;
-    }
-var numericCharacters = prompt("Would you like to inlcude Numeric Characters?");
-    if (numericCharacters === true) { 
+    };
+    if (numericCharacters === numericCharacters) { 
         alert("Numeric Characters Selected")
         return;
     }
