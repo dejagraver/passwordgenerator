@@ -35,22 +35,25 @@ function choosePasswordOptions() {
      if (passwordLength > 128)  {
         alert("Password must be less then 129 characters")
         return;
-    };
-    if (numericCharacters === numericCharacters) { 
-        alert("Numeric Characters Selected")
+    }
+    // invoke new prompt between conditions
+var newPrompt = numericConfirm("Would you like to include Numeric Characters!");
+    if (numericConfirm) {
+        numericCharacters();
+    } else {
+        alert("Numeric Characters NOT Selected")
         return;
     }
-    if (specialCharacters === specialCharcters) {
+    
+var newPrompt = confirm("Would you like to include Special Character!");
+    if (specialCharacters === specialCharacters) { 
         alert("Special Characters Selected")
         return;
     }
-    if (upperCaseCharacters === upperCaseCharacters) {
-        alert("Upper Case Characters Selcted")
-    }
-    if (lowerCaseCharacters === lowerCaseCharacters) {
-        alert("Lower Case Characters Selected")
+    if (specialCharacters !== specialCharacters) { 
+        alert("Special Characters NOT Selected")
         return;
-    }
+    };
 
     //Confirm Character Type Selection
     var wantsNumericCharacters = confirm("Click Ok if you would like to include Numeric Characters.");
