@@ -37,17 +37,18 @@ function choosePasswordOptions() {
         alert("Password must be less then 129 characters")
         return;
     }
-    // invoke new prompt between condition
+    // invoke new prompt between conditions
+
     //Confirm Character Type Selection
-var wantsNumericCharacters = confirm("Click Ok if you would like to include Numeric Characters.");
+    var wantsNumericCharacters = confirm("Click Ok if you would like to include Numeric Characters.");
     if (wantsNumericCharacters) {
         alert("Numeric Characters Selected");
     } else {
         alert("Numeric Characters NOT Selected");
         return;
-    }
+    } 
 
-var wantsSpecialCharcters = confirm("Click Ok if you would like to include Special Characters");
+    var wantsSpecialCharacters = confirm("Click Ok if you would like to include Special Characters");
     if (wantsSpecialCharacters) {
         alert("Special Characters Selected");
     } else {
@@ -55,15 +56,16 @@ var wantsSpecialCharcters = confirm("Click Ok if you would like to include Speci
         return;
     }
 
-var wantsUpperCaseCharacterers = confrim("Click Ok if you would like to include Upper Case Characters");
-        if (wantsUpperCaseCharacterers) {
+    var wantsUpperCaseCharacters = confirm("Click Ok if you would like to include Upper Case Characters");
+        if (wantsUpperCaseCharacters) {
             alert("Uppercase Characters Selected");
         } else {
             alert("Uppercase Characters NOT Selected");
             return;
         }
+     
 
-var wantsLowerCaseCharacters = confirm("Click Ok if you would like Lower Case Characters");
+    var wantsLowerCaseCharacters = confirm("Click Ok if you would like Lower Case Characters");
         if (wantsLowerCaseCharacters) {
             alert("Lowercase Characters Selected");
         } else {
@@ -75,12 +77,14 @@ var wantsLowerCaseCharacters = confirm("Click Ok if you would like Lower Case Ch
         alert("Error, Please select a minimum of one Character Type.")
         }
         
+
+
     //Password Options 
     var passwordOptions = {
         length: passwordLength, 
         wantsNumericCharacters: wantsNumericCharacters,
-        wantsSpecialCharacters: wantsSpecialCharcters,
-        wantsUpperCaseCharacterers: wantsUpperCaseCharacterers,
+        wantsSpecialCharacters: wantsSpecialCharacters,
+        wantsUpperCaseCharacterers: wantsUpperCaseCharacters,
         wantsLowerCaseCharacters: wantsLowerCaseCharacters,  
     }
     return passwordOptions;
