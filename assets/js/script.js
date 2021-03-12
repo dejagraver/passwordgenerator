@@ -16,8 +16,9 @@
 
 //Create Arrays alongside possibilies IF criteria asked for isnt selected. 
 var generateBtn = document.querySelector("#generate");
+generateBtn.addEventListener("click", writePassword); {
+}
 var numericCharacters = ["0","1", "2", "3", "4", "5", "6", "7", "8", "9"]
-var specialCharacters = [",", "?", ".", ">", "<", "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "`", "{", "}", "[", "]", "|", "œ", "∑", "´", "®", "†", "¥", "¨", "ˆ", "ø", "π", "“", "‘", "«", "å", "ß", "∂", "ƒ", "©", "˙", "˙", "∆", "˚", "˚", "¬", "…", "æ", "÷", "≥", "≤", "µ", "˜", "∫", "√", "ç", "≈" ]
 var upperCaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 var lowerCaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 function choosePasswordOptions() {
@@ -33,8 +34,9 @@ function choosePasswordOptions() {
      if (passwordLength > 128)  {
         alert("Password must be less then 129 characters")
         return;
-    } else
-    if (numericCharacters === numericCharacters) { 
+    }
+var numericCharacters = prompt("Would you like to inlcude Numeric Characters?");
+    if (numericCharacters === true) { 
         alert("Numeric Characters Selected")
         return;
     }
@@ -50,16 +52,16 @@ function choosePasswordOptions() {
         return;
     }
 
-//Confirm Character Type Selection
+    //Confirm Character Type Selection
     var wantsNumericCharacters = confirm("Click Ok if you would like to include Numeric Characters.");
     var wantsSpecialCharcters = confirm("Click Ok if you would like to include Special Characters");
     var wantsUpperCaseCharacterers = confrim("Click Ok if you would like to include Upper Case Characters");
     var wantsLowerCaseCharacters = confirm("Click Ok if you would like Lower Case Characters");
         if (wantsNumericCharacters === false && wantsSpecialCharacters === false && wantsUpperCaseCharacters === false && wantsLowerCaseCharacters === false) {
         alert("Error, Please select a minimum of one Character Type.")
-        return;
-    }
-//Password Options 
+        }
+        
+    //Password Options 
     var passwordOptions = {
         length: passwordLength, 
         wantsNumericCharacters: wantsNumericCharacters,
@@ -69,7 +71,7 @@ function choosePasswordOptions() {
     }
     return passwordOptions;
 
-
+}
 
 
 function getRandom(arr) {
@@ -94,10 +96,5 @@ function writePassword() {
   }
 
 
-generateBtn.addEventListener("click", writePassword); {
-
-};
-
-}
 //Answers should be validated "Password Criteria Accepted" + "Generating Password"
 //Password will then be generated and displays via Alert with a copy tag
