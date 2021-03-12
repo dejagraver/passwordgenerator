@@ -41,9 +41,9 @@ function choosePasswordOptions() {
 
     //Confirm Character Type Selection
     var wantsNumericCharacters = confirm("Click Ok if you would like to include Numeric Characters.");
-    if (wantsNumericCharacters) {
+    if (wantsNumericCharacters === true) {
         alert("Numeric Characters Selected");
-    } else {
+    } else if (!wantsNumericCharacters === false) {
         alert("Numeric Characters NOT Selected");
         return;
     } 
