@@ -97,20 +97,20 @@ function getRandom(arr) {
 function generatePassword() {
     var finalPassword = []
     var options = choosePasswordOptions(); 
-        if (options.numbers) {
-            finalPassword.push([...numericCharacters])
+    console.log(options) 
+         if (options.numbers) {
+            finalPassword.push(...numericCharacters)
         } if (options.specialCharacters) {
-            finalPassword.push([...specialCharacters])
+            finalPassword.push(...specialCharacters)
         } if (options.uppercase) {
-            finalPassword.push([upperCaseCharacters])
+            finalPassword.push(...upperCaseCharacters)
         } if (options.lowercase) {
-            finalPassword.push([lowerCaseCharacters])
+            finalPassword.push(...lowerCaseCharacters)
         }
     var randomElement = getRandom(finalPassword)
     //youre declaring the varible but not using it anywhere 
-    return randomElement
-return finalPassword}
-
+    return finalPassword}
+    
 
 
 //choose.random for the characters 
