@@ -97,10 +97,8 @@ function getRandom(arr) {
 function generatePassword() {
     var finalPassword = []
     var options = choosePasswordOptions(); 
-    console.log(options)
         if (options.numbers) {
             finalPassword.push([...numericCharacters])
-            console.log("hello")
         } if (options.specialCharacters) {
             finalPassword.push([...specialCharacters])
         } if (options.uppercase) {
@@ -125,4 +123,4 @@ function writePassword() {
   generateBtn.addEventListener("click", writePassword); 
 
 //Answers should be validated "Password Criteria Accepted" + "Generating Password"
-//Password will then be generated and displays via Alert with a copy tag
+//Password will then be generated and displays via Alert with a copy tag91
