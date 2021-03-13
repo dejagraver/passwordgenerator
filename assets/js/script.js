@@ -16,8 +16,6 @@
 
 //Create Arrays alongside possibilies IF criteria asked for isnt selected. 
 var generateBtn = document.querySelector("#generate");
-generateBtn.addEventListener("click", writePassword); {
-}
 
 var numericCharacters = ["0","1", "2", "3", "4", "5", "6", "7", "8", "9"]
 var specialCharacters = [",", "?", ".", ">", "<", "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "`", "{", "}", "[", "]", "|", "œ", "∑", "´", "®", "†", "¥", "¨", "ˆ", "ø", "π", "“", "‘", "«", "å", "ß", "∂", "ƒ", "©", "˙", "˙", "∆", "˚", "˚", "¬", "…", "æ", "÷", "≥", "≤", "µ", "˜", "∫", "√", "ç", "≈" ]
@@ -80,10 +78,10 @@ function choosePasswordOptions() {
     //Password Options 
     var passwordOptions = {
         length: passwordLength, 
-        Numbers: wantsNumericCharacters,
-        Specialcharacters: wantsSpecialCharacters,
-        Uppercase: wantsUpperCaseCharacters,
-        Lowercase: wantsLowerCaseCharacters,  
+        numbers: wantsNumericCharacters,
+        specialCharacters: wantsSpecialCharacters,
+        uppercase: wantsUpperCaseCharacters,
+        lowercase: wantsLowerCaseCharacters,  
     }
     return passwordOptions;
 
@@ -95,25 +93,36 @@ function getRandom(arr) {
     var randomElement = arr[randomIndex];
     return randomElement;
 }
-function generatePassword() {
-    var options = choosePasswordOptions(); {
-        return [...numericCharacters, ...specialCharacters, ...upperCaseCharacters, ...lowerCaseCharacters];
-    } else if (choosePasswordOptions) {return [...numericCharacters, ... specialCharacters]
-    }
 
-}
+function generatePassword() {
+    var finalPassword = []
+    var options = choosePasswordOptions(); 
+    console.log(options)
+        if (options.numbers) {
+            finalPassword.push([...numericCharacters])
+            console.log("hello")
+        } if (options.specialCharacters) {
+            finalPassword.push([...specialCharacters])
+        } if (options.uppercase) {
+            finalPassword.push([upperCaseCharacters])
+        } if (options.lowercase) {
+            finalPassword.push([lowerCaseCharacters])
+        }
+    var randomElement = getRandom(finalPassword)
+    //youre declaring the varible but not using it anywhere 
+    return randomElement
+return finalPassword}
+
 
 
 //choose.random for the characters 
-
-
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
   }
-
+  generateBtn.addEventListener("click", writePassword); 
 
 //Answers should be validated "Password Criteria Accepted" + "Generating Password"
 //Password will then be generated and displays via Alert with a copy tag
