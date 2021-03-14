@@ -54,7 +54,7 @@ function choosePasswordOptions() {
         } else if (!wantsLowerCaseCharacters === false) {
             alert("Lowercase Characters NOT Selected");
         }
-
+    //IF loop for a minimum of ATLEAST one character type selected 
         if (wantsNumericCharacters === false && wantsSpecialCharacters === false && wantsUpperCaseCharacters === false && wantsLowerCaseCharacters === false) {
         alert("Error, Please select a minimum of one Character Type.")
         }
