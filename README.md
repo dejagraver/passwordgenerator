@@ -15,4 +15,5 @@ Website GitHub Repository URL: https://github.com/dejagraver/passwordgenerator
 Application GitHub URL: https://dejagraver.github.io/passwordgenerator/ 
 
 Screenshot: 
+![image](https://user-images.githubusercontent.com/78667882/111077825-f691ad80-84c8-11eb-9b8e-9e3aec84204e.png)
 
