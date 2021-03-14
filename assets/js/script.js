@@ -14,15 +14,19 @@
 //Generate Password 
 //Create Arrays alongside possibilies IF criteria asked for isnt selected. 
 
-
+//Button Generator 
 var generateBtn = document.querySelector("#generate");
 
+//Password character type option Arrays 
 var numericCharacters = ["0","1", "2", "3", "4", "5", "6", "7", "8", "9"]
 var specialCharacters = [",", "?", ".", ">", "<", "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "`", "{", "}", "[", "]", "|", "œ", "∑", "´", "®", "†", "¥", "¨", "ˆ", "ø", "π", "“", "‘", "«", "å", "ß", "∂", "ƒ", "©", "˙", "˙", "∆", "˚", "˚", "¬", "…", "æ", "÷", "≥", "≤", "µ", "˜", "∫", "√", "ç", "≈" ]
 var upperCaseCharacters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 var lowerCaseCharacters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
 var passwordLength;
+
+//Choose Password Option Prompts 
 function choosePasswordOptions() {
+    //Confirm Password length loop criteria selection
     criteriaPrompt = confirm("Welcome to the Password Generator! You have the option of including Numeric characters, Special Characters, Uppercase letters, and Lowercase letters. You must choose a mininmum of one character type. You can only choose a password length between 8 and 128! ")
     passwordLength = parseInt(prompt("How many charcters long do you want?"));
     if (isNaN(passwordLength)) {
@@ -37,9 +41,8 @@ function choosePasswordOptions() {
         alert("Password must be less then 129 characters");
         return;
     }
-    // invoke new prompt between conditions
 
-    //Confirm Character Type Selection
+    //Confirm Character Type criteria selection
     var wantsNumericCharacters = confirm("Click Ok if you would like to include Numeric Characters.");
     if (wantsNumericCharacters === true) {
         alert("Numeric Characters Selected");
@@ -61,7 +64,6 @@ function choosePasswordOptions() {
             alert("Uppercase Characters NOT Selected");
         }
      
-
     var wantsLowerCaseCharacters = confirm("Click Ok if you would like Lower Case Characters");
         if (wantsLowerCaseCharacters === true) {
             alert("Lowercase Characters Selected");
@@ -72,7 +74,8 @@ function choosePasswordOptions() {
         if (wantsNumericCharacters === false && wantsSpecialCharacters === false && wantsUpperCaseCharacters === false && wantsLowerCaseCharacters === false) {
         alert("Error, Please select a minimum of one Character Type.")
         }
-    //Password Options 
+
+//Password Options: created "Custom Objects" that have property names and the associated value associated value of an object
     var passwordOptions = {
         length: passwordLength, 
         numbers: wantsNumericCharacters,
@@ -81,10 +84,9 @@ function choosePasswordOptions() {
         lowercase: wantsLowerCaseCharacters,  
     }
     return passwordOptions;
-
 }
 
-
+//getRandom function that creates the random password, arr.length takes the actual content with in the array (ie. a-z, 0-9 etc)
 function getRandom(arr) {
     var randomIndex = Math.floor(Math.random() * arr.length);
     var randomElement = arr[randomIndex];
@@ -92,17 +94,19 @@ function getRandom(arr) {
     return randomElement;
 }
 
-//take items of an array and make them into a string 
-//need to randomize the array and need to tell it how long it should be through the use of var passwordLength 
-// need a for loop with i<options.length 
-
+//generatePassword takes the Password options declared above and pushes the arrays if TRUE
+//i = 0 (initial expression).. for loop declares variable array... , 
+//i <  options.length(condition statement)...if evaluates to TRUE the STATEMENT will execute 
+//i++ is the (increment expression) which runs the loop at length user selected (ie user selects length 8, it will run 8)
+//finalCharacter equals the getRandom function applied to finalPasswordOptions 
+//finalPassword pushes the finalCharacter/getRandom 
+//Using the join() method converts arrays into a string displaying the elements of an array rather then the array itself (1,2,3,4,5 vs 12345) and returns it 
 function generatePassword() {
     var finalPasswordoptions = []
     var finalPassword = []
     characterElements =  lowerCaseCharacters.join("")
     var options = choosePasswordOptions(); 
     console.log(options) 
-    // for (var i = 0; i <options.length; i++) { getranodm from the list of selceted character as seen in the IF loops 
         if  (options.numbers===true) {
             finalPasswordoptions.push(...numericCharacters);
         } if (options.special===true) {
@@ -116,14 +120,11 @@ function generatePassword() {
             var finalCharacter = getRandom(finalPasswordoptions)
             finalPassword.push(finalCharacter)
         }
-    //var randomElement = getRandom(finalPassword)
-    //final password needs to be a string 
     return finalPassword.join("")
 }
     
 
-
-//choose.random for the characters 
+//function writePassword Calls on the push from generatePassword and writes the Randomized password of the the return finalPassword.join()
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -132,5 +133,3 @@ function writePassword() {
   }
   generateBtn.addEventListener("click", writePassword); 
 
-//Answers should be validated "Password Criteria Accepted" + "Generating Password"
-//Password will then be generated and displays via Alert with a copy tag91
