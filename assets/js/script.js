@@ -1,19 +1,3 @@
-//Assignment code here
-//Write function to start password generator
-//User will load page click generate password
-//User will be prompted on for password criteria 
-//A selction of what criteria can be included will pop up 
-//User will then be promtped for lenght from 8 minimum and 128 maximum characters 
-//User will be prompted on character types 
-//Character types prompt for lowercase, uppercase, numeric, and/or special characters 
-//Minimum one character type selected 
-//Character types prompt for lowercase
-//Character types prompt for  uppercase
-//Character types prompt for numeric
-//Character types prompt for special characters 
-//Generate Password 
-//Create Arrays alongside possibilies IF criteria asked for isnt selected. 
-
 //Button Generator 
 var generateBtn = document.querySelector("#generate");
 
@@ -75,7 +59,7 @@ function choosePasswordOptions() {
         alert("Error, Please select a minimum of one Character Type.")
         }
 
-//Password Options: created "Custom Objects" that have property names and the associated value associated value of an object
+    //Password Options: created "Custom Objects" that have property names and the associated value associated value of an object
     var passwordOptions = {
         length: passwordLength, 
         numbers: wantsNumericCharacters,
@@ -95,12 +79,6 @@ function getRandom(arr) {
 }
 
 //generatePassword takes the Password options declared above and pushes the arrays if TRUE
-//i = 0 (initial expression).. for loop declares variable array... , 
-//i <  options.length(condition statement)...if evaluates to TRUE the STATEMENT will execute 
-//i++ is the (increment expression) which runs the loop at length user selected (ie user selects length 8, it will run 8)
-//finalCharacter equals the getRandom function applied to finalPasswordOptions 
-//finalPassword pushes the finalCharacter/getRandom 
-//Using the join() method converts arrays into a string displaying the elements of an array rather then the array itself (1,2,3,4,5 vs 12345) and returns it 
 function generatePassword() {
     var finalPasswordoptions = []
     var finalPassword = []
@@ -122,7 +100,6 @@ function generatePassword() {
         }
     return finalPassword.join("")
 }
-    
 
 //function writePassword Calls on the push from generatePassword and writes the Randomized password of the the return finalPassword.join()
 function writePassword() {
@@ -132,4 +109,3 @@ function writePassword() {
   passwordText.value = password;
   }
   generateBtn.addEventListener("click", writePassword); 
-
